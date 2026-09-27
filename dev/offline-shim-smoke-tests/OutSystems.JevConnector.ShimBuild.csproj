@@ -1,0 +1,27 @@
+<!--
+  Build-only project used to compile the connector source against the local
+  attribute shim instead of the real NuGet package (this sandbox has no
+  access to nuget.org). Not part of the shipped solution/ZIP.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>VRG.Jev</RootNamespace>
+    <AssemblyName>VRG.JevConnector</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\src\OutSystems.JevConnector\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="OutSystems.ExternalLibraries.SDK.Shim\OutSystems.ExternalLibraries.SDK.Shim.csproj" />
+    <ProjectReference Include="Logging.Shim\Logging.Shim.csproj" />
+  </ItemGroup>
+
+</Project>

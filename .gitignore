@@ -1,0 +1,30 @@
+# .NET build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+.idea/
+TestResults/
+*.trx
+*.coverage
+
+# Package produced by scripts/build-and-package.sh (attach it to a GitHub Release instead)
+ExternalLibrary.zip
+publish.zip
+
+# Local tooling / machine-specific settings
+.claude/settings.local.json
+
+# Secrets / local env
+.env
+.env.*
+*.pfx
+*.snk
+appsettings.*.local.json
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

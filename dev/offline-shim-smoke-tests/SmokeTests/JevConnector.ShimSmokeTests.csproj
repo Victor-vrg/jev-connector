@@ -1,0 +1,30 @@
+<!--
+  Executable smoke test that exercises JevClient's real parsing/retry logic
+  against a fake HttpMessageHandler, using the local shims (see the sibling
+  csproj files) because this sandbox cannot reach nuget.org. Not part of the
+  shipped solution.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>JevConnector.ShimSmokeTests</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\src\OutSystems.JevConnector\**\*.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="FakeHttpMessageHandler.cs" />
+    <Compile Include="ConsoleLogger.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OutSystems.ExternalLibraries.SDK.Shim\OutSystems.ExternalLibraries.SDK.Shim.csproj" />
+    <ProjectReference Include="..\Logging.Shim\Logging.Shim.csproj" />
+  </ItemGroup>
+
+</Project>
